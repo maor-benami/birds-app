@@ -38,8 +38,10 @@ export default function Home() {
 				/>
 
 				{selectedBirdId && (
-					<div className='flex-grow'>
-						<MainView bird={birds.find(bird => bird.id === selectedBirdId)}/>
+					<div className='flex-grow relative'>
+						<div className="absolute inset-0 overflow-y-auto">
+							<MainView bird={birds.find(bird => bird.id === selectedBirdId)}/>
+						</div>
 					</div>
 				)}
 			</div>
