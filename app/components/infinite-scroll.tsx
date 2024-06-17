@@ -10,7 +10,6 @@ type InfiniteScrollProps<T> = {
 
 export const InfiniteScroll = <T, >(props: InfiniteScrollProps<T>) => {
 	const [page, setPage] = useState(1);
-	const [paginating, setPaginating] = useState(false);
 	const ref = createRef()
 
 	useEffect(() => {
@@ -24,10 +23,8 @@ export const InfiniteScroll = <T, >(props: InfiniteScrollProps<T>) => {
 			}
 
 			if (ref.current.scrollHeight - 1 <= (ref.current.scrollTop + ref.current.offsetHeight)) {
-				setPaginating(true)
 				setTimeout(() => {
 					setPage(prev => prev + 1)
-					setPaginating(false)
 				}, props.timeout)
 			}
 		}
