@@ -19,8 +19,6 @@ export const InfiniteScroll = <T, >(props: InfiniteScrollProps<T>) => {
 		const onScroll = () => {
 			if (!ref.current) return
 
-			if (paginating) return
-
 			if (props.items.length <= page * props.pageSize) {
 				return
 			}
@@ -41,7 +39,7 @@ export const InfiniteScroll = <T, >(props: InfiniteScrollProps<T>) => {
 
 			ref.current.removeEventListener('scroll', onScroll)
 		}
-	}, [])
+	}, [ref])
 
 	return (
 		<div

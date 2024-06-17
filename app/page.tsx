@@ -15,15 +15,17 @@ export default function Home() {
 
 	const onSubmit = useCallback(async (count: number, useCache: boolean) => {
 		setLoading(true)
+
 		const response = await fetch(`http://localhost:3000/api/birds`, {
 			method: 'POST',
 			body: JSON.stringify({count, useCache})
 		})
+
 		const birds = await response.json()
 
-		setSelectedBirdId('')
 		setBirds(birds)
 		setLoading(false)
+		setSelectedBirdId('')
 	}, [])
 
 	return (
