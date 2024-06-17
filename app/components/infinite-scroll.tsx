@@ -19,14 +19,13 @@ export const InfiniteScroll = <T, >(props: InfiniteScrollProps<T>) => {
 		const onScroll = () => {
 			if (!ref.current) return
 
+			if (paginating) return
+
 			if (props.items.length <= page * props.pageSize) {
 				return
 			}
 
-			const scrollHeight= Math.round(ref.current.scrollHeight)
-			const scrolledHeight= (Math.round(ref.current.scrollTop + ref.current.offsetHeight))
-
-			if (scrollHeight === scrolledHeight) {
+			if (ref.current.scrollHeight - 1 <= (ref.current.scrollTop + ref.current.offsetHeight)) {
 				setPaginating(true)
 				setTimeout(() => {
 					setPage(prev => prev + 1)
