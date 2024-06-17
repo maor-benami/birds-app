@@ -41,7 +41,7 @@ export const InfiniteScroll = <T, >(props: InfiniteScrollProps<T>) => {
 
 			ref.current.removeEventListener('scroll', onScroll)
 		}
-	})
+	}, [])
 
 	return (
 		<div
