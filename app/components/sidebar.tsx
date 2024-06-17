@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import {Bird} from "@/app/types";
 import {InfiniteScroll} from "@/app/components/infinite-scroll";
+import {SIDEBAR_PAGE_SIZE, SIDEBAR_SCROLL_TIMEOUT} from "@/app/config";
 
 type SidebarItemProps = {
 	title: string
@@ -78,9 +79,9 @@ export const Sidebar = (props: SidebarProps) => {
 			<div className='flex-grow relative'>
 				<div className='absolute inset-0'>
 					<InfiniteScroll<Bird>
+						pageSize={SIDEBAR_PAGE_SIZE}
+						timeout={SIDEBAR_SCROLL_TIMEOUT}
 						loading={props.loading}
-						pageSize={5}
-						timeout={1500}
 						items={props.birds}
 						render={(bird) => {
 							return (

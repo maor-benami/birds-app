@@ -18,3 +18,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ---
 
+## Config File
+
+`app/config.ts`
+
+```
+MAX_CACHE_SIZE              Limit birds cache array length
+SIDEBAR_PAGE_SIZE           Number of items displayed on each scroll
+SIDEBAR_SCROLL_TIMEOUT      Mock delay for sidebar infinite scroll
+```

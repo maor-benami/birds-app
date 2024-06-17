@@ -1,6 +1,5 @@
 import {Bird} from "@/app/types";
-
-const MAX_CACHE_SIZE = 30;
+import {MAX_CACHE_SIZE} from "@/app/config";
 
 type Cache = {
 	birds: Array<Bird>
