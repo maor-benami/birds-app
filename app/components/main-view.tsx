@@ -1,5 +1,3 @@
-'use client'
-
 import {Bird} from "@/app/types";
 
 type MainViewProps = {

@@ -13,10 +13,16 @@ type SidebarItemProps = {
 }
 
 const SidebarItem = (props: SidebarItemProps) => {
+	const className: string = clsx(
+		'w-full border rounded p-2 flex flex-col gap-1 hover:shadow-md cursor-pointer',
+		props.active && 'border-blue-500'
+	)
+
 	return (
 		<div
 			onClick={props.onClick}
-			className={clsx('w-full border rounded p-2 flex flex-col gap-1 hover:shadow-md cursor-pointer', props.active && 'border-blue-500')}>
+			className={className}
+		>
 			<div className='h-48' style={{
 				backgroundSize: 'cover',
 				backgroundImage: `url(${props.imageUrl})`,
@@ -49,10 +55,18 @@ export const Sidebar = (props: SidebarProps) => {
 
 	return (
 		<div className='bg-white border-e h-[100vh] flex flex-col'>
-			<form action="" className='flex flex-col gap-2 p-4' onSubmit={onSubmit}>
+			<form
+				className='flex flex-col gap-2 p-4'
+				onSubmit={onSubmit}
+			>
 				<div className='flex gap-2'>
-					<input defaultValue='15' name='count' className='py-1 px-2 rounded border' type="number"
-					       placeholder='Number of birds'/>
+					<input
+						defaultValue='15'
+						name='count'
+						className='py-1 px-2 rounded border'
+						type="number"
+						placeholder='Number of birds'
+					/>
 					<button className='bg-black text-white rounded py-1 px-2'>Submit</button>
 				</div>
 
